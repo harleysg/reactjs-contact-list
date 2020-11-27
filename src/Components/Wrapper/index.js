@@ -16,10 +16,9 @@ export function Wrapper(props) {
         flexWrap: props.flexWrap || "nowrap",
         flex: props.flex || "0 1 auto",
         alignItems: props.alignItems || "stretch",
-        margin: props.margin || "0",
+        margin: props.margin || "0 auto",
         width: props.width || "100%",
         height: props.height || "auto",
-        maxWidth: props.maxWidth || "none"
       }}
     >
       {props.children}
