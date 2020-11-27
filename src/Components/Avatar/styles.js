@@ -1,0 +1,20 @@
+import styled from "styled-components"
+import {Figure, Img} from "../Image/styles"
+
+export const FigureStyled = styled(Figure)(props => {
+  const { width, active } = props;
+    
+  return `
+      border-radius: 50% ;
+      max-width: ${width ? width : "150px"};
+      box-shadow: ${active ? "0 0 0 4px var(--color_primary)" : null};
+  `
+})
+
+export const ImageStyled = styled(Img)(() => {
+    
+  return `
+      object-fit: cover;
+      object-position: center;
+  `
+})
