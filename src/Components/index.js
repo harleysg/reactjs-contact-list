@@ -8,6 +8,7 @@ export { default as Header } from "./Header";
 export { default as Image } from "./Image";
 export { default as Brand } from "./Logo";
 export { default as Nav } from "./Nav";
+export { default as Pagination } from "./Pagination";
 export { default as Section } from "./Section";
 
 export { Wrapper };
