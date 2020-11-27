@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import { Card, CardList, Heading, Section, Wrapper } from "../Components";
+import { CardList, Heading, Section, Wrapper } from "../Components";
+import { useContacts } from "../Hooks";
 
 const FAVORITES = [
   {
@@ -30,26 +31,18 @@ const FAVORITES = [
 ];
 
 export default function Overview() {
+  
+  const {isLoading, list: {data = []}} = useContacts()
+
   return (
     <Wrapper space="2">
       <Heading title="Favorites" bg="var(--color_primary)" />
       <Section scroll="x">
-        <CardList display="flex">
-          {FAVORITES.map((item, i) => (
-            <Card key={`${item.id}`} {...item} />
-          ))}
-        </CardList>
+        <CardList display="flex" data={FAVORITES} />
       </Section>
       <Heading title="Contacts" bg="var(--color_primary)" />
       <Section>
-        <CardList>
-          {FAVORITES.map((item, i) => (
-            <Card key={`${item.id}`} {...item} />
-          ))}
-          {FAVORITES.map((item, i) => (
-            <Card key={`${item.id}`} {...item} />
-          ))}
-        </CardList>
+        <CardList loading={isLoading} data={data} />
       </Section>
     </Wrapper>
   );
