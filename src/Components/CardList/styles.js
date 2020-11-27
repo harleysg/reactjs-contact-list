@@ -5,14 +5,14 @@ function handleDisplay(props) {
     return `
       display: flex;
       & > * {
-        min-width: 280px;
+        min-width: calc(calc(1300px / 4) - (1.5rem * 1.5));
       }
     `;
   } else {
     return `
       display: grid;
       justify-content: center;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 280px));
+      grid-template-columns: repeat(auto-fill, minmax(180px, calc(calc(1300px / 4) - (1.5rem * 1.5))));
       `;
   }
 }
