@@ -5,19 +5,19 @@ import { Empty } from "../Empty";
 
 import { CardListStyled } from "./styles";
 
-function HandleCard({ list = [] }){
+function HandleCard({ list = [], field }){
   return <>
     {
       list
         ? list.map((item) => (
-          <Card key={`${item.id}`} {...item} />
+          <Card key={`${item.id}`} {...item} field={field} />
         ))
-        : "empty"
+        : <CardSkeleton />
     }
   </>
 }
 
-function CardList({ loading = false, data, ...others }) {
+function CardList({ loading = false, data, field, ...others }) {
   if (!Array.isArray(data)){
     return "Warning: Invalidad informatión. can´t show."
   }
@@ -28,7 +28,7 @@ function CardList({ loading = false, data, ...others }) {
     {
       loading
         ? Array(6).fill("a").map((card, i) => <CardSkeleton key={`${card}-${i}`} />)
-        : <HandleCard list={ data }/> 
+        : <HandleCard list={ data } field={field}/> 
     }
     </CardListStyled>;
 }

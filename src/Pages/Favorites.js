@@ -1,24 +1,15 @@
 import React from "react";
 
 import { CardList, Heading, Pagination,Section, Wrapper } from "../Components";
-import { useContacts } from "../Hooks";
-
-// const FAVORITES = [
-//   {
-//     id: 1,
-//     name: "Tio Rico",
-//     email: "macPato@disney.com",
-//     favorite: true
-//   }
-// ];
+import { useContact } from "../Hooks";
 
 export function Favorites() {
-  const {isLoading, list: {data = []}} = useContacts()
+  const {isLoading, contacts} = useContact()
   return (
     <Wrapper space="2">
       <Heading title="Favorites" bg="var(--color_primary)" />
       <Section>
-        <CardList loading={isLoading} data={data} />
+        <CardList loading={isLoading} data={contacts} field="favorites"/>
       </Section>
       <Section>
         <Pagination />
