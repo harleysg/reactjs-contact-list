@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const CardStyled = styled.div`
-  display: grid;
-  grid-template-rows: 150px auto 3rem;
+  display: flex;
+  flex-direction: column;
   padding: 0.5rem 1rem 0.8rem;
   gap: 0.9rem;
   background-color: var(--theme_bg_04);
-  box-shadow: 0px 7px 22px 2px rgba(0,0,0,0.1), 0 10px 10px -2px rgba(0,0,0,0.04);
+  box-shadow: 0px 7px 8px 2px rgba(0,0,0,0.1), 0px 7px 20px -2px rgba(0,0,0,0.04);
   /* box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); */
   text-align: center;
   justify-content: center;
@@ -17,25 +17,27 @@ export const Title = styled.h4`
   margin: 0;
 `;
 
-export const Email = styled.p((props) => {
+export const Email = styled.p(() => {
   return `
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
-    
+    max-width: calc(var(--fz) * 15);
+    margin: auto;
   `;
 });
 
-export const Actions = styled.footer((props) => {
+export const Actions = styled.footer(() => {
   return `
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 1rem;
   `;
 });
 
-export const Body = styled.section((props) => {
+export const Body = styled.section(() => {
   return `
     padding: 0.5rem;
   `;
