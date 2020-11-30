@@ -34,7 +34,7 @@ export const theme = css`
     --theme_elevation_01: var(--theme_bg_00);
     --theme_elevation_02: var(--theme_bg_00);
     --theme_elevation_03: var(--theme_bg_00);
-    --theme_elevation_04: 0px 5px 8px -3px rgb(78 78 78 / 58%);
+    --theme_elevation_04: 0px 8px 14px -7px rgb(137 137 137 / 35%);
     --theme_elevation_06: var(--theme_bg_00);
     --theme_elevation_08: var(--theme_bg_00);
     --theme_elevation_12: var(--theme_bg_00);
