@@ -9,6 +9,9 @@ Globant - ReactJs CP-Academy
 - [ ] Button style status
 - [ ] Empty component response
 - [ ] Pagination component
+- [ ] Update storybook with all components
+- [ ] Redux implementation
+- [ ] Testing implementation
 
 
 ## Reviews
