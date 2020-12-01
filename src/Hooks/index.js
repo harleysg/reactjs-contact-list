@@ -1,34 +1,43 @@
 import { useEffect, useState } from "react"
 
-import { FILTER_RESPONSE } from "../Services"
+import { FILTER_RESPONSE, REDUCE_ARRAYS } from "../Services"
 
-export function useContacts({endPoint = "users"} = {}) {
-  const [isLoading, setIsLoading] = useState(false);
+export const useContact = () => {
+  const [isLoading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [list, setList] = useState({})
+  const [contacts, setContacts] = useState([]);
 
   useEffect(() => {
-    setIsLoading(true)
-    fetch(`https://reqres.in/api/${endPoint}`)
-      .then(res => res.json())
-      .then(FILTER_RESPONSE) // Include { favorites: boolean, full_name: string }
-      .then(res => {
-        setList(res)
-        setIsLoading(false)
-        setIsError(false)
-      }).catch(e => {
-        setIsLoading(false)
-        setIsError(true)
-        console.error(e)
+    let newData = [];
+    setLoading(true);
+    Promise.all([
+      fetch(`https://reqres.in/api/users?page=1`).then((res) => res.json()),
+      fetch(`https://reqres.in/api/users?page=2`).then((res) => res.json())
+    ])
+      .then((response) => {
+        newData = response.map((res) => res.data).reduce(REDUCE_ARRAYS);
+        return { data: response, newData };
       })
-  }, [endPoint])
-    
+      .then(FILTER_RESPONSE)
+      .then((data) => {
+        const contacts = data.full_contacts;
+        setContacts(contacts);
+        setLoading(false);
+        setIsError(false);
+      })
+      .catch((e) => {
+        setLoading(false);
+        setIsError(true);
+        console.error(e);
+      });
+  }, []);
+
   return {
-    list,
+    contacts,
     isLoading,
     isError
-  }
-}
+  };
+};
 
 export function useShowForm() {
   const [show, setShow] = useState(false)
