@@ -5,4 +5,5 @@ export const Menu = styled.ul`
   margin: 0;
   display: flex;
   gap: 1.5rem;
+  align-items: center;
 `;

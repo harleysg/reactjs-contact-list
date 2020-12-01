@@ -10,7 +10,7 @@ export default function Nav() {
       <MenuItem exact text="Overview" type="link" to="/"/>
       <MenuItem exact text="Contact" type="link" to="/contact"/>
       <MenuItem exact text="Favorites" type="link" to="/favorites"/>
-      <MenuItem text="new" type="button" event={() => console.log(`.....`)}/>
+      <MenuItem text="new" type="button" theme="solid" icon="add" event={() => console.log(`.....`)}/>
     </Menu>
   );
 }
