@@ -13,6 +13,10 @@ export const CardStyled = styled.div`
   border-radius: 3px;
 `;
 
+export const Hr = styled.hr`
+  width: 100%
+`
+
 export const Title = styled.h4`
   margin: 0;
 `;

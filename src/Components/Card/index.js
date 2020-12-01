@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 
 import { Button, Avatar } from "../index";
-import { CardStyled, Title, Email, Actions, Body, CardSkeletonStyled } from "./styles";
+import { CardStyled, Title, Email, Actions, Body, CardSkeletonStyled, Hr } from "./styles";
 
 export default function Card({ full_name: name, email, src, favorite, field }) {
   const [fav, setFav] = useState(favorite)
@@ -17,6 +17,7 @@ export default function Card({ full_name: name, email, src, favorite, field }) {
         <Title>{name}</Title>
         <Email>{email}</Email>
       </Body>
+      <Hr />
       <Actions>
         <Button
           label={ (field === "favorites" && fav) ? "Remove" : null }
