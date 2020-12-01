@@ -1,13 +1,14 @@
 
-export function FILTER_RESPONSE(data /*object*/){
-  const dataListContacts = data.data || []
-  const state = { favorite: false }
+export function FILTER_RESPONSE({ data /*object*/, newData /*Array*/ }) {
+  const favoriteState = { favorite: false };
 
-  const newContactList = dataListContacts.map(contact => {
-    const full_name = `${contact.first_name || ""} ${contact.last_name || ""}`
-    return {...state, ...contact, full_name}
-  })
-  data.data = newContactList
+  const newContactList = newData.map((contact) => {
+    const full_name = `${contact.first_name || ""} ${contact.last_name || ""}`;
+    return { ...favoriteState, ...contact, full_name };
+  });
+  data.full_contacts = newContactList;
 
-  return data
+  return data;
 }
+
+export const REDUCE_ARRAYS = (acc, cur) => [...acc, ...cur]
