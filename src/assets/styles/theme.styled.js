@@ -5,8 +5,8 @@ export const theme = css`
     --fz: 17px;
     --ff: sans-serif;
 
-    --color_primary: rgb(141, 0, 255);
-    --color_secundary: rgb(133 42 233);
+    --color_primary: #c1d72f; //rgb(141, 0, 255);
+    --color_secundary:#c1d72f; // rgb(133 42 233);
     --color_tertiary: #c1d72f;
 
     --theme_scroll-track: #dcc9c9;
