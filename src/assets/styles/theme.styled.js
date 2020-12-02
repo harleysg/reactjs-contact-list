@@ -7,7 +7,7 @@ export const theme = css`
 
     --color_primary: #c1d72f; //rgb(141, 0, 255);
     --color_secundary:#c1d72f; // rgb(133 42 233);
-    --color_tertiary: #c1d72f;
+    --color_tertiary: #CF6679;
 
     --theme_scroll-track: #dcc9c9;
     --theme_scroll-thumb: linear-gradient(
@@ -17,7 +17,7 @@ export const theme = css`
     );
 
     --theme_color: #161616;
-    --theme_color_LinkOver: var(--color_tertiary);
+    --theme_color_LinkOver: var(--color_secundary);
 
     --theme_bg_00: white;
     --theme_bg_01: var(--theme_bg_00);
