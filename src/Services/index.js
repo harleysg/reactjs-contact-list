@@ -12,3 +12,16 @@ export function FILTER_RESPONSE({ data /*object*/, newData /*Array*/ }) {
 }
 
 export const REDUCE_ARRAYS = (acc, cur) => [...acc, ...cur]
+
+
+
+export function FETCH_CREATE_USER(body/*Object*/) {
+  return fetch("https://reqres.in/api/users", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(body)
+  })
+  .then(res => res.json())
+}
