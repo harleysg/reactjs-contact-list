@@ -7,6 +7,11 @@ export const HeadingStyled = styled.div`
   gap: 1rem;
   padding: 1.5rem 0;
 
+  position: sticky;
+  top: var(--size-min-header);
+  z-index: var(--z-index-heading);
+  background-color: var(--theme_bg_02);
+
   & > * {
     color: ${(props) => (props.color ? props.color : "inherit")};
     margin: 0;
