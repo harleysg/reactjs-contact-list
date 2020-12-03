@@ -5,19 +5,31 @@ import { FormStyled, InputStyled, LabelStyled } from "./styles"
 import { Button } from "../index"
 import { useFormState } from "../../Hooks"
 
-export default function Form(){
+import { useFormConnect } from "./connect"
+
+export default Form
+
+const SharedAttributes = {
+  required: true,
+  autoComplete: "off"
+}
+
+function Form(){
+  const { showForm, dispatch_showForm } = useFormConnect()
   const {loading, user, setUser, sendFormData} = useFormState()
   const form = useRef(null)
-
-  const SharedAttributes = {
-    required: true,
-    autoComplete: "off"
-  }
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
     setUser(user)
     sendFormData(form.current)
+      .then(isFinish => {
+        dispatch_showForm(isFinish)
+      })
+  }
+
+  if (!showForm){
+    return <></>
   }
 
   return <FormStyled onSubmit={handleOnSubmit} ref={form}>

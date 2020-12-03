@@ -13,7 +13,18 @@ export function FILTER_RESPONSE({ data /*object*/, newData /*Array*/ }) {
 
 export const REDUCE_ARRAYS = (acc, cur) => [...acc, ...cur]
 
-
+export function FETCH_ALL_PAGES() {
+  let newData = [];
+  return Promise.all([
+      fetch(`https://reqres.in/api/users?page=1`).then((res) => res.json()),
+      fetch(`https://reqres.in/api/users?page=2`).then((res) => res.json())
+    ])
+      .then((response) => {
+        newData = response.map((res) => res.data).reduce(REDUCE_ARRAYS);
+        return { data: response, newData };
+      })
+      .then(FILTER_RESPONSE)
+}
 
 export function FETCH_CREATE_USER(body/*Object*/) {
   return fetch("https://reqres.in/api/users", {

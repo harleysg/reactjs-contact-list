@@ -17,12 +17,13 @@ export default function useFormState(){
 
   function sendFormData(formRef){
     setLoading(true)
-    FETCH_CREATE_USER(user)
+    return FETCH_CREATE_USER(user)
     .then(res => {
       setResponse(res)
       setLoading(false)
       setUser(USER)
       formRef.reset()
+      return true
     })
     .catch(e => {
       console.error(e)

@@ -5,19 +5,20 @@ import Overview from "../Pages/Overview";
 import { Contact } from "../Pages/Contact";
 import { Favorites } from "../Pages/Favorites";
 import { Header, Nav, Wrapper, Brand, Form } from "../Components";
-import { useShowForm } from "../Hooks";
 
 export default function Routes() {
-  const { show, setShow } = useShowForm()
   return (
     <BrowserRouter>
       <Header>
-        <Wrapper space="2" flex alignItems="center" justifyContent="space-between">
+        <Wrapper space="2"
+          flex alignItems="center"
+          justifyContent="space-between"
+        >
           <Brand size={3} />
-          <Nav action={() => setShow(!show)}/>
+          <Nav/>
         </Wrapper>
       </Header>
-      {show && <Form />}
+      <Form />
       <Switch>
         <Route path="/" exact>
           <Overview />
