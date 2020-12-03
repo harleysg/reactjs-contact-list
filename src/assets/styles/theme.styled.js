@@ -40,6 +40,11 @@ export const theme = css`
     --theme_elevation_12: var(--theme_bg_00);
     --theme_elevation_16: var(--theme_bg_00);
     --theme_elevation_24: var(--theme_bg_00);
+
+    --z-index-header: 50;
+    --z-index-heading: 10;
+
+    --size-min-header: 4rem;
   }
 
   html {

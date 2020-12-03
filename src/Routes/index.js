@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Overview from "../Pages/Overview";
 import { Contact } from "../Pages/Contact";
 import { Favorites } from "../Pages/Favorites";
-import { Header, Nav, Wrapper, Brand, Form } from "../Components";
+import { Header, Nav, Wrapper, Brand, Form, Footer } from "../Components";
 
 export default function Routes() {
   return (
@@ -30,6 +30,7 @@ export default function Routes() {
           <Favorites />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
