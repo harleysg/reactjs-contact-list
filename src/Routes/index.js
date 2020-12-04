@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Overview from "../Pages/Overview";
 import { Contact } from "../Pages/Contact";
 import { Favorites } from "../Pages/Favorites";
-import { Header, Nav, Wrapper, Brand } from "../Components";
+import { Header, Nav, Wrapper, Brand, Form } from "../Components";
 
 export default function Routes() {
   return (
@@ -15,7 +15,7 @@ export default function Routes() {
           <Nav />
         </Wrapper>
       </Header>
-
+      <Form />
       <Switch>
         <Route path="/" exact>
           <Overview />
