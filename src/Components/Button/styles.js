@@ -6,7 +6,7 @@ function useStatus(value) {
     case "solid":
       return (theme = `
         background-color: var(--color_primary);
-        color: white;
+        color: var(--theme_color);
       `);
     case "disabled":
       return (theme = ``);
@@ -14,12 +14,14 @@ function useStatus(value) {
       break;
     default:
       theme = `
-        box-shadow: 0 0 0 1px var(--color_primary) inset;
+        box-shadow: 0 0 0 1px currentColor inset;
       `;
       break;
   }
   return theme;
 }
+
+// .attrs({ className: "is-active" })
 
 const ButtonStyled = styled.button((props) => {
   return `
@@ -34,18 +36,29 @@ const ButtonStyled = styled.button((props) => {
     min-height: 2rem;
     
     background-color: var(--theme_bg_12);
-    color: var(--theme_color);
+    color: var(--color_primary);
+    
     ${useStatus(props.theme)}
+    
     cursor: pointer;
     text-transform: uppercase;
     font-size: 0.7rem;
-
+    
     span {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100%;
+      color: var(--theme_color);
     }
+
+
+    &[class*="c-btn-remove"],
+    &[class*="c-btn-delete"] {
+      --color_primary: var(--color_tertiary);
+      color: var(--color_primary);
+    }
+
   `;
 });
 
