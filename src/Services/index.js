@@ -1,10 +1,10 @@
 
 export function FILTER_RESPONSE({ data /*object*/, newData /*Array*/ }) {
-  const favoriteState = { favorite: false };
+  const status = { favorite: false, active: true };
 
   const newContactList = newData.map((contact) => {
     const full_name = `${contact.first_name || ""} ${contact.last_name || ""}`;
-    return { ...favoriteState, ...contact, full_name };
+    return { ...status, ...contact, full_name };
   });
   data.full_contacts = newContactList;
 
