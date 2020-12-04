@@ -22,11 +22,12 @@ export default function Card({ full_name: name, email, src, favorite, field }) {
         <Button
           label={ (field === "favorites" && fav) ? "Remove" : null }
           icon={fav ? "close" : "love"}
+          className={`${fav ? "c-btn-remove" : ""}`}
           onClick={handleFav}
         />
         {
           field === "contacts_list"
-            ? <Button icon="trash"/>
+            ? <Button icon="trash" className="c-btn-delete"/>
             : null
         }
       </Actions>

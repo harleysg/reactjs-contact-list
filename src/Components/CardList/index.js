@@ -21,7 +21,8 @@ function CardList({ loading = false, data, field, ...others }) {
   if (!Array.isArray(data)){
     return "Warning: Invalidad informatión. can´t show."
   }
-  if(!data){
+  
+  if(data.length === 0){
     return <Empty />
   }
   return <CardListStyled {...others}>
