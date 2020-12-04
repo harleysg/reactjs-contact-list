@@ -1,18 +1,24 @@
+import defaultSrc from "../../assets/images/profile-default.png"
+
 export const initialState = {
   contacts: {
     favorites: [],
-    all: [],
+    all: [], // state.contacts.all.length > 6
     deleted: [],
-    pending: false
+    pending: false,
+    currentPage: 0
   },
   form: {
     show: false,
   },
   user: {
+    active: true,
+    favorite: false,
+    id: null, 
     email: "", 
     first_name: "",
     last_name: "",
-    avatar: "",
-    favorite: false
+    avatar: defaultSrc,
+    full_name: "",
   }
 }

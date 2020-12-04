@@ -1,20 +1,29 @@
-import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { TOGGLE_FORM } from "../../Redux/Actions";
+import { useFormState } from "../../Hooks"
 
 export function useFormConnect() {
-  const [loading, setLoading] = useState()
+  const {loading, user, setUser, sendFormData} = useFormState()
   const showForm = useSelector(state => state.form.show)
   const dispatch = useDispatch()
   
   const dispatch_showForm = (payload)  => dispatch(TOGGLE_FORM(payload))
+
+  function handleFormSubmit (form) {
+    sendFormData(form)
+      .then(isFinish => {
+        dispatch_showForm(isFinish)
+      })
+  }
   
   return {
     showForm,
     dispatch_showForm,
     loading,
-    setLoading
+    handleFormSubmit,
+    user,
+    setUser
   }
 }
 
