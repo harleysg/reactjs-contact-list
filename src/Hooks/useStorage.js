@@ -1,14 +1,15 @@
 
-export function useLocalStorage(){
+export function useLocalStorage() {
 
-  function setItem(key, value){
-    window.localStorage.setItem(value, JSON.stringify(key))
+  function setItem(key, value) {
+    window.localStorage.setItem(key, value)
   }
-  function removeItem(key){
+  function removeItem(key) {
     window.localStorage.removeItem(key)
   }
-  function getItem(key){
-    window.localStorage.getItem(key)
+  function getItem(key) {
+    const data = window.localStorage.getItem(key)
+    return data
   }
 
   return {
