@@ -3,7 +3,6 @@ import { useRef } from "react"
 import { FormStyled, InputStyled, LabelStyled } from "./styles"
 
 import { Button } from "../index"
-import { useFormState } from "../../Hooks"
 
 import { useFormConnect } from "./connect"
 
@@ -15,24 +14,19 @@ const SharedAttributes = {
 }
 
 function Form(){
-  const { showForm, dispatch_showForm } = useFormConnect()
-  const {loading, user, setUser, sendFormData} = useFormState()
+  const {loading, user, setUser, showForm, handleFormSubmit } = useFormConnect()
   const form = useRef(null)
 
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
-    setUser(user)
-    sendFormData(form.current)
-      .then(isFinish => {
-        dispatch_showForm(isFinish)
-      })
+  const OnSubmit = (event) => {
+    event.preventDefault();
+    handleFormSubmit(form.current)
   }
 
   if (!showForm){
     return <></>
   }
 
-  return <FormStyled onSubmit={handleOnSubmit} ref={form}>
+  return <FormStyled onSubmit={OnSubmit} ref={form}>
     <InputStyled 
       {...SharedAttributes}
       type="text"

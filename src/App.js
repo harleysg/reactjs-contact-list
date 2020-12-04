@@ -1,18 +1,19 @@
 import * as React from "react";
-import { useGetContacts } from "./Hooks"
+import { useGetContacts, useLocalStorage } from "./Hooks"
 
 import Routes from "./Routes";
 import Styles from "./assets/styles";
 
 function App() {
   const { contacts } = useGetContacts()
+  const { setItem, removeItem } = useLocalStorage()
 
   React.useEffect(() => {
-    window.localStorage.setItem("contacts", JSON.stringify(contacts))
+    setItem("contacts", JSON.stringify(contacts))
     return () => {
-      window.localStorage.removeItem("contacts")
+      removeItem("contacts")
     }
-  }, [contacts])
+  }, [contacts, setItem, removeItem])
 
   return (
     <>
