@@ -4,15 +4,18 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Overview from "../Pages/Overview";
 import { Contact } from "../Pages/Contact";
 import { Favorites } from "../Pages/Favorites";
-import { Header, Nav, Wrapper, Brand, Form } from "../Components";
+import { Header, Nav, Wrapper, Brand, Form, Footer } from "../Components";
 
 export default function Routes() {
   return (
     <BrowserRouter>
       <Header>
-        <Wrapper space="2" flex alignItems="center" justifyContent="space-between">
+        <Wrapper space="2"
+          flex alignItems="center"
+          justifyContent="space-between"
+        >
           <Brand size={3} />
-          <Nav />
+          <Nav/>
         </Wrapper>
       </Header>
       <Form />
@@ -27,6 +30,7 @@ export default function Routes() {
           <Favorites />
         </Route>
       </Switch>
+      <Footer />
     </BrowserRouter>
   );
 }
