@@ -12,9 +12,10 @@ export const FigureStyled = styled(Figure)(props => {
 })
 
 export const ImageStyled = styled(Img)(() => {
-    
   return `
       object-fit: cover;
       object-position: center;
+      max-width: 120px;
+      min-height: 120px;
   `
 })

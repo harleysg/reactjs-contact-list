@@ -8,6 +8,7 @@ export function Wrapper(props) {
       space={props.space}
       style={{
         display: props.flex ? "flex" : "block",
+        gap: props.gap ? props.gap : "1rem",
         justifyContent: props.justifyContent || "flex-start",
         flexDirection: props.flexDirection || "row",
         flexGrow: props.flexGrow || 0,
