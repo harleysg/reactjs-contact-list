@@ -10,7 +10,7 @@ export const HeadingStyled = styled.div`
   position: sticky;
   top: var(--size-min-header);
   z-index: var(--z-index-heading);
-  background-color: var(--theme_bg_02);
+  background-color: var(--theme_bg_00);
 
   & > * {
     color: ${(props) => (props.color ? props.color : "inherit")};
