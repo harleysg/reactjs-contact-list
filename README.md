@@ -9,9 +9,15 @@ Globant - ReactJs CP-Academy
   - [x] style and structure component
   - [X] Hook
 - [x] Button style status
-- [ ] Empty component response
+- [x] Empty component response
 - [ ] Update storybook with all components
-- [ ] Redux implementation
+- [x] Redux implementation
+  - [x] Toggle form component
+  - [ ] Overview - favorite sectión
+  - [x] Overview - contact sectión
+  - [x] Contact list - Get contacts from store
+  - [ ] Set and remove Favorite
+  - [ ] Delete contact
 - [ ] Testing implementation
 
 
