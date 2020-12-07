@@ -16,6 +16,8 @@ export const ImageStyled = styled(Img)(() => {
       object-fit: cover;
       object-position: center;
       max-width: 120px;
+      min-width: 120px;
       min-height: 120px;
+      background-color: var(--color_primary);
   `
 })
