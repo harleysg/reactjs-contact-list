@@ -33,7 +33,7 @@ export const reset = css`
   button {
     background: transparent;
     border: 0;
-    outline: 0;
+    /* outline: 0; */
   }
   /* Set core body defaults */
   body {
