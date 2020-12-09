@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { CardList, Heading, Pagination, Section, Wrapper } from "../Components";
+import { Heading, Pagination, Section, Wrapper } from "../Components";
 
 export function Contact() {
   const contacts = useSelector(state => state.contacts.all)
@@ -8,10 +8,12 @@ export function Contact() {
     <Wrapper space="2">
       <Heading title="Contacts" bg="var(--color_primary)" />
       <Section>
-        <CardList data={contacts} field="contacts_list"/>
-      </Section>
-      <Section>
-        <Pagination />
+        <Pagination
+          field="contacts_list"
+          data={contacts}
+          itemsPerPage={8}
+          startFrom={1}
+        />
       </Section>
     </Wrapper>
   );
