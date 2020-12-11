@@ -12,7 +12,7 @@ export function Favorites() {
         <Pagination
           field="favorites"
           data={contacts}
-          itemsPerPage={6}
+          itemsPerPage={8}
           startFrom={1}
         />
       </Section>
