@@ -9,7 +9,8 @@ export const theme = css`
     --color_secundary:#c1d72f; // rgb(133 42 233);
     --color_tertiary: #CF6679;
 
-    --theme_scroll-track: #dcc9c9;
+    --theme_scroll-track: #b0cbd8;
+    --theme_scroll-track-hover: #7CB342;
     --theme_scroll-thumb: linear-gradient(
       45deg,
       var(--color_secundary),
@@ -110,6 +111,6 @@ export const theme = css`
   }
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: rgb(141, 0, 255);
+    background: var(--theme_scroll-track-hover);
   }
 `;
