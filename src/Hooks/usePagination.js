@@ -16,9 +16,12 @@ export default function usePagination(initialState) {
   );
   const [isEmpty, setEmpty] = useState(false)
 
+  
   useEffect(() => {
-    [...data].slice((currentPage - 1) * perPage, currentPage * perPage)
-  }, [data, perPage, currentPage])
+    setSliceData(
+      [...data].slice((currentPage - 1) * perPage, currentPage * perPage)
+    );
+  }, [data, currentPage, setSliceData, perPage]);
 
   useEffect(() => {
     setEmpty(data.length === 0 ? true : false)
