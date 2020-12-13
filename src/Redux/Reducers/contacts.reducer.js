@@ -64,7 +64,7 @@ export default function contactsReducers(state = initialState.contacts, action) 
       return {
         ...state,
         all: state.all.concat(action.payload),
-        favorites: state.favorites.concat(action.payload)
+        favorites: action.payload.favorite ? state.favorites.concat(action.payload) : state.favorites
       };
     case ACTION.GET_CONTACT_API:
       return {
