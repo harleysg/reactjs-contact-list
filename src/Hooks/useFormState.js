@@ -14,7 +14,7 @@ export default function useFormState(){
   
   function sendFormData(formRef){
     dispatch(TOGGLE_PENDING(true))
-    return FETCH_CREATE_USER({...user, full_name: `${user.first_name} ${user.first_name}`, active: true})
+    return FETCH_CREATE_USER({...user, full_name: `${user.first_name} ${user.last_name}`, active: true})
     .then(res => {
       setResponse(res)
       dispatch(NEW_CONTACT(res))
