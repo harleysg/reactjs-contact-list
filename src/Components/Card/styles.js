@@ -6,15 +6,23 @@ export const CardStyled = styled.div`
   padding: 0.5rem 1rem 0.8rem;
   gap: 0.9rem;
   background-color: var(--theme_bg_04);
-  box-shadow: 0px 7px 8px 2px rgba(0,0,0,0.1), 0px 7px 20px -2px rgba(0,0,0,0.04);
-  /* box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); */
+  box-shadow: 0px 4px 4px -2px rgba(0,0,0,0.1), 0px 2px 6px 2px rgba(0,0,0,0.04);
   text-align: center;
   justify-content: center;
   border-radius: 3px;
+
+  &:hover {
+    box-shadow: 0px 7px 4px -2px rgba(0, 0, 0, 0.1), 0px 3px 16px 2px rgba(0, 0, 0, 0.04);
+    hr {
+      border-color: var(--color_primary);
+    }
+  }
 `;
 
 export const Hr = styled.hr`
-  width: 100%
+  width: 100%;
+  border: none;
+  border-top: 1px solid gray;
 `
 
 export const Title = styled.h4`
