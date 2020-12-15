@@ -1,16 +1,13 @@
 import { connect } from "react-redux";
 
-import { ACTION } from "../../Redux/Types";
+import formReducer from "../../Redux/Reducers/form.reducer";
 
 export default connect(null, mapDispathToProps);
 
 function mapDispathToProps(displatch) {
     return {
-        handleShowForm: function (visible) {
-            displatch({
-                type: ACTION.SHOW_FORM,
-                payload: visible
-            })
+        handleShowForm () {
+            displatch(formReducer.showForm())
         }
     }
 }

@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from '@reduxjs/toolkit'
 import formReducer from "./form.reducer"
 import contactsReducers from "./contacts.reducer"
 
@@ -7,7 +7,7 @@ import contactsReducers from "./contacts.reducer"
  */
 export default combineReducers({
   contacts: contactsReducers,
-  form: formReducer
+  form: formReducer.reducer
 })
 
 
