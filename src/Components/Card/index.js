@@ -1,7 +1,7 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useCallback } from "react";
 import { useDispatch } from "react-redux"
 
-import { ADD_FAVORITES, REMOVE_FAVORITES, DELETE_CONTACTS } from "../../Redux/Actions"
+import reducer from "../../Redux/Reducers/contacts.reducer"
 import { Button, Avatar } from "../index";
 import { CardStyled, Title, Email, Actions, Body, CardSkeletonStyled, Hr } from "./styles";
 
@@ -9,25 +9,18 @@ export default function Card(props) {
   const { full_name: name, email, avatar, favorite, field } = props
   
   const dispatch = useDispatch()
-  const [fav, setFav] = useState(favorite)
-
-  useEffect(() => {
-    setFav(favorite)
-  }, [favorite])
 
   const handleFav = useCallback((contact) => {
     if(contact.favorite !== true){
-      dispatch(ADD_FAVORITES(contact))
-      setFav(true)
+      dispatch(reducer.action.add_favorites(contact))
     } else {
-      dispatch(REMOVE_FAVORITES(contact))
-      setFav(false)
+      dispatch(reducer.action.remove_favorites(contact))
     }
-  }, [setFav, dispatch])
+  }, [dispatch])
   
   return (
     <CardStyled>
-      <Avatar src={avatar} alt={`Avatar of ${name}`} rounded active={fav} />
+      <Avatar src={avatar} alt={`Avatar of ${name}`} rounded active={favorite} />
       <Body>
         <Title>{name}</Title>
         <Email>{email}</Email>
@@ -35,9 +28,9 @@ export default function Card(props) {
       <Hr />
       <Actions>
         <Button
-          label={ (field === "favorites" && fav) ? "Remove" : null }
-          icon={fav ? "close" : "love"}
-          className={`${fav ? "c-btn-remove" : ""}`}
+          label={ (field === "favorites" && favorite) ? "Remove" : null }
+          icon={favorite ? "close" : "love"}
+          className={`${favorite ? "c-btn-remove" : ""}`}
           onClick={() => handleFav(props)}
         />
         {
@@ -45,7 +38,7 @@ export default function Card(props) {
             ? <Button
                 icon="trash"
                 className="c-btn-delete"
-                onClick={ () => dispatch(DELETE_CONTACTS(props.id))}
+                onClick={ () => dispatch(reducer.action.delete_contact(props))}
               />
             : null
         }

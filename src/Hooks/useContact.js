@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux";
 
-import { GET_CONTACTS, TOGGLE_PENDING } from "../Redux/Actions";
+import reducer from "../Redux/Reducers/contacts.reducer"
 import { FETCH_ALL_PAGES } from "../Services"
 
 /**
@@ -16,16 +16,16 @@ export function useGetContacts(){
   const dispatch = useDispatch()
   
   useEffect(() => {
-    dispatch(TOGGLE_PENDING(true))
+    dispatch(reducer.action.pending(true))
     FETCH_ALL_PAGES()
-      .then(data => {
-        const contacts = data.full_contacts;
-        dispatch(GET_CONTACTS(contacts))
-        dispatch(TOGGLE_PENDING(false))
-      }).catch((e) => {
-        dispatch(TOGGLE_PENDING(false))
-        console.error(e)
-      })
+    .then(data => {
+      const contacts = data.full_contacts;
+      dispatch(reducer.action.get_contacts(contacts))
+      dispatch(reducer.action.pending(false))
+    }).catch((e) => {
+      dispatch(reducer.action.pending(false))
+      console.error(e)
+    })
   }, [dispatch])
 
   return {

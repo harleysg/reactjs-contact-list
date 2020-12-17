@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 
-import { TOGGLE_PENDING, NEW_CONTACT } from "../Redux/Actions";
+import reducer from "../Redux/Reducers/contacts.reducer";
 import { initialState } from "../Redux/State";
 import { FETCH_CREATE_USER } from "../Services"
 
@@ -13,14 +13,14 @@ export default function useFormState(){
   const loading = useSelector(state => state.contacts.pending)
   
   function sendFormData(formRef){
-    dispatch(TOGGLE_PENDING(true))
+    dispatch(reducer.action.pending(true))
     return FETCH_CREATE_USER({...user, full_name: `${user.first_name} ${user.last_name}`, active: true})
     .then(res => {
       setResponse(res)
-      dispatch(NEW_CONTACT(res))
+      dispatch(reducer.action.new_contact(res))
       setUser(initialState.user)
       formRef.reset()
-      dispatch(TOGGLE_PENDING(false))
+      dispatch(reducer.action.pending(false))
       return true
     })
     .catch(e => {

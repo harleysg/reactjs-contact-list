@@ -1,14 +1,12 @@
 import { connect } from "react-redux";
-import { ACTION } from "../../Redux/Types";
+import reducer from "../../Redux/Reducers/contacts.reducer";
 
 export default connect(null, mapDsipatchToProps)
 
 function mapDsipatchToProps(dispatch) {
   return {
     restoreContacts: function () {
-      dispatch({
-        type: ACTION.SHOW_CONTACTS_DELETED
-      })
+      dispatch(reducer.action.restore_contacts())
     }
   }
 }

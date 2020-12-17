@@ -13,11 +13,11 @@ export default function Overview() {
     <Wrapper space="2">
       <Heading title="Favorites" bg="var(--color_primary)" />
       <Section scroll="x">
-        <CardList display="flex" data={favorites.slice(0, 8)} field="favorites"/>
+        <CardList display="flex" data={favorites.slice(0, 6)} field="favorites"/>
       </Section>
       <Heading title="Contacts" bg="var(--color_primary)" />
       <Section>
-        <CardList data={contacts.slice(0, 6)} field="overview"/>
+        <CardList data={contacts.slice(0, 8)} field="overview"/>
       </Section>
     </Wrapper>
   );

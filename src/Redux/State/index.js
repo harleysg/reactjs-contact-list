@@ -3,10 +3,9 @@ import defaultSrc from "../../assets/images/profile-default.png"
 export const initialState = {
   contacts: {
     favorites: [],
-    all: [], // state.contacts.all.length > 6
+    all: [],
     deleted: [],
     pending: false,
-    currentPage: 0
   },
   form: {
     show: false,
