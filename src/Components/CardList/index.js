@@ -6,24 +6,21 @@ import { Empty } from "../Empty";
 import { CardListStyled } from "./styles";
 
 function HandleCard({ list = [], field }){
+  if(list.length === 0){
+    return <Empty />
+  }
   return <>
     {
-      list
-        ? list.map((item) => (
-          <Card key={`${item.id}`} {...item} field={field} />
-        ))
-        : <CardSkeleton />
+      list.map((item) => (
+        <Card key={`${item.id}`} {...item} field={field} />
+      ))
     }
   </>
 }
 
 function CardList({ loading = false, data, field, ...others }) {
   if (!Array.isArray(data)){
-    return "Warning: Invalidad informatión. can´t show."
-  }
-  
-  if(data.length === 0){
-    return <Empty />
+    return "Warning: Invalid information. data isn´t array."
   }
   return <CardListStyled {...others}>
     {
