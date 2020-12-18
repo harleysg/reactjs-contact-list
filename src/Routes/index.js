@@ -20,15 +20,9 @@ export default function Routes() {
       </Header>
       <Form />
       <Switch>
-        <Route path="/" exact>
-          <Overview />
-        </Route>
-        <Route path="/contact" exact>
-          <Contact />
-        </Route>
-        <Route path="/favorites" exact>
-          <Favorites />
-        </Route>
+        <Route path="/" exact component={Overview} />
+        <Route path="/contact" exact component={Contact}/>
+        <Route path="/favorites" exact component={Favorites}/>
       </Switch>
       <Footer />
     </BrowserRouter>
