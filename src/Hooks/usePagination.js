@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 export default function usePagination(initialState) {
   const { itemsPerPage = 5, data = [], startFrom = 1 } = initialState;
-  const perPage = itemsPerPage ? itemsPerPage : 10;
+  const perPage = itemsPerPage;
   const dataLength = data.length;
   const isDisabled = !dataLength ? true : false
   const pages = Math.ceil(dataLength / perPage);

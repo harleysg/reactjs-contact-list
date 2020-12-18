@@ -20,7 +20,7 @@ export const Navigator = styled.div`
 
 export const Controls = styled.div`
   display: grid;
-  grid-template-columns: 1fr 80px 100px;
+  grid-template-columns: 1fr 80px min-content;
   gap: 1rem;
   padding: 2rem 0rem;
   justify-content: center;
